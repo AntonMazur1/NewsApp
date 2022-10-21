@@ -7,23 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89A7C0632902CB9D00344A79 /* UINavigationBar + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7C0622902CB9D00344A79 /* UINavigationBar + Extension.swift */; };
 		89C6043C290129B10071A198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6043B290129B10071A198 /* AppDelegate.swift */; };
 		89C6043E290129B10071A198 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6043D290129B10071A198 /* SceneDelegate.swift */; };
-		89C60440290129B10071A198 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6043F290129B10071A198 /* ViewController.swift */; };
+		89C60440290129B10071A198 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6043F290129B10071A198 /* NewsViewController.swift */; };
 		89C60443290129B10071A198 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C60441290129B10071A198 /* Main.storyboard */; };
 		89C60445290129B30071A198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C60444290129B30071A198 /* Assets.xcassets */; };
 		89C60448290129B30071A198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C60446290129B30071A198 /* LaunchScreen.storyboard */; };
+		89C60452290129E40071A198 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C60451290129E40071A198 /* NewsViewModel.swift */; };
+		89C60457290133C60071A198 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C60455290133C60071A198 /* NewsTableViewCell.swift */; };
+		89C60458290133C60071A198 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C60456290133C60071A198 /* NewsTableViewCell.xib */; };
+		89C6045B290136B90071A198 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6045A290136B90071A198 /* NetworkManager.swift */; };
+		89C6045E29013A520071A198 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6045D29013A520071A198 /* NewsModel.swift */; };
+		89C6046129013B360071A198 /* NewsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6046029013B360071A198 /* NewsTableViewCellViewModel.swift */; };
+		89C6046329013F0A0071A198 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6046229013F0A0071A198 /* UIImageView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89A7C0622902CB9D00344A79 /* UINavigationBar + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar + Extension.swift"; sourceTree = "<group>"; };
 		89C60438290129B10071A198 /* NewsTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C6043B290129B10071A198 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89C6043D290129B10071A198 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		89C6043F290129B10071A198 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89C6043F290129B10071A198 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		89C60442290129B10071A198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89C60444290129B30071A198 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89C60447290129B30071A198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C60449290129B30071A198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89C60451290129E40071A198 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		89C60455290133C60071A198 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		89C60456290133C60071A198 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		89C6045A290136B90071A198 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		89C6045D29013A520071A198 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		89C6046029013B360071A198 /* NewsTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		89C6046229013F0A0071A198 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		898A99B02902C18E00393980 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				89C6046229013F0A0071A198 /* UIImageView + Extension.swift */,
+				89A7C0622902CB9D00344A79 /* UINavigationBar + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		89C6042F290129B10071A198 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +81,78 @@
 		89C6043A290129B10071A198 /* NewsTask */ = {
 			isa = PBXGroup;
 			children = (
-				89C6043B290129B10071A198 /* AppDelegate.swift */,
-				89C6043D290129B10071A198 /* SceneDelegate.swift */,
-				89C6043F290129B10071A198 /* ViewController.swift */,
-				89C60441290129B10071A198 /* Main.storyboard */,
-				89C60444290129B30071A198 /* Assets.xcassets */,
-				89C60446290129B30071A198 /* LaunchScreen.storyboard */,
-				89C60449290129B30071A198 /* Info.plist */,
+				89C6044F290129BE0071A198 /* Application */,
+				89C60450290129D80071A198 /* NewsViewController */,
+				89C60453290129E90071A198 /* Storyboards */,
+				89C60454290129F10071A198 /* Resources */,
+				898A99B02902C18E00393980 /* Extensions */,
+				89C6045C290136C80071A198 /* Services */,
+				89C6045F29013A630071A198 /* Models */,
 			);
 			path = NewsTask;
+			sourceTree = "<group>";
+		};
+		89C6044F290129BE0071A198 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				89C6043B290129B10071A198 /* AppDelegate.swift */,
+				89C6043D290129B10071A198 /* SceneDelegate.swift */,
+				89C60449290129B30071A198 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		89C60450290129D80071A198 /* NewsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				89C6043F290129B10071A198 /* NewsViewController.swift */,
+				89C60451290129E40071A198 /* NewsViewModel.swift */,
+				89C60459290133CC0071A198 /* NewsTableViewCell */,
+			);
+			path = NewsViewController;
+			sourceTree = "<group>";
+		};
+		89C60453290129E90071A198 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				89C60441290129B10071A198 /* Main.storyboard */,
+				89C60446290129B30071A198 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		89C60454290129F10071A198 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				89C60444290129B30071A198 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		89C60459290133CC0071A198 /* NewsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				89C60455290133C60071A198 /* NewsTableViewCell.swift */,
+				89C6046029013B360071A198 /* NewsTableViewCellViewModel.swift */,
+				89C60456290133C60071A198 /* NewsTableViewCell.xib */,
+			);
+			path = NewsTableViewCell;
+			sourceTree = "<group>";
+		};
+		89C6045C290136C80071A198 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				89C6045A290136B90071A198 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		89C6045F29013A630071A198 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				89C6045D29013A520071A198 /* NewsModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +215,7 @@
 			files = (
 				89C60448290129B30071A198 /* LaunchScreen.storyboard in Resources */,
 				89C60445290129B30071A198 /* Assets.xcassets in Resources */,
+				89C60458290133C60071A198 /* NewsTableViewCell.xib in Resources */,
 				89C60443290129B10071A198 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +227,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89C60440290129B10071A198 /* ViewController.swift in Sources */,
+				89C6045E29013A520071A198 /* NewsModel.swift in Sources */,
+				89C6045B290136B90071A198 /* NetworkManager.swift in Sources */,
+				89C60440290129B10071A198 /* NewsViewController.swift in Sources */,
+				89A7C0632902CB9D00344A79 /* UINavigationBar + Extension.swift in Sources */,
+				89C6046329013F0A0071A198 /* UIImageView + Extension.swift in Sources */,
 				89C6043C290129B10071A198 /* AppDelegate.swift in Sources */,
+				89C60457290133C60071A198 /* NewsTableViewCell.swift in Sources */,
 				89C6043E290129B10071A198 /* SceneDelegate.swift in Sources */,
+				89C6046129013B360071A198 /* NewsTableViewCellViewModel.swift in Sources */,
+				89C60452290129E40071A198 /* NewsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +385,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V2AAW35578;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsTask/Info.plist;
+				INFOPLIST_FILE = NewsTask/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +413,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V2AAW35578;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsTask/Info.plist;
+				INFOPLIST_FILE = NewsTask/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
