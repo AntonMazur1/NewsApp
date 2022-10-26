@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UINavigationBar {
+extension UIView {
     func roundCourners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
