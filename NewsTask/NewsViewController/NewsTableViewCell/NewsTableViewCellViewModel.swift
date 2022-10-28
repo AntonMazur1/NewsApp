@@ -8,20 +8,20 @@
 import Foundation
 
 protocol NewsTableViewCellViewModelProtocol {
-    var newsImage: String { get }
-    var newsTitle: String { get }
-    var newsDescription: String { get }
-    init(newsImage: String, newsTitle: String, newsDescription: String)
+    var articleImage: String { get }
+    var articleTitle: String { get }
+    var articleDescription: String { get }
+    init(articleImage: String, articleTitle: String, articleDescription: String)
 }
 
 class NewsTableViewCellViewModel: NewsTableViewCellViewModelProtocol {
-    var newsImage: String
-    var newsTitle: String
-    var newsDescription: String
+    var articleImage: String
+    var articleTitle: String
+    var articleDescription: String
     
-    required init(newsImage: String, newsTitle: String, newsDescription: String) {
-        self.newsImage = newsImage
-        self.newsTitle = newsTitle
-        self.newsDescription = newsDescription
+    required init(articleImage: String, articleTitle: String, articleDescription: String) {
+        self.articleImage = articleImage
+        self.articleTitle = articleTitle
+        self.articleDescription = articleDescription
     }
 }

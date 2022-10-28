@@ -16,9 +16,9 @@ class NewsTableViewCell: UITableViewCell {
     
     var viewModel: NewsTableViewCellViewModelProtocol? {
         didSet {
-            newsImage.getImageFrom(url: viewModel?.newsImage ?? "")
-            newsTitle.text = viewModel?.newsTitle
-            newsDescription.text = viewModel?.newsDescription
+            newsImage.getImageFrom(url: viewModel?.articleImage ?? "")
+            newsTitle.text = viewModel?.articleTitle
+            newsDescription.text = viewModel?.articleDescription
         }
     }
     

@@ -14,17 +14,17 @@ protocol NewsViewModelProtocol {
 }
 
 class NewsViewModel: NewsViewModelProtocol {
-    private var news: [Article]?
+    private var articles: [Article]?
     
     var numberOfRows: Int {
-        news?.count ?? 0
+        articles?.count ?? 0
     }
     
     func loadNews(completion: @escaping () -> ()) {
-        NetworkManager.loadNewsFromServer { result in
+        NetworkManager.shared.loadNewsFromServer { result in
             switch result {
-            case .success(let news):
-                self.news = news.articles
+            case .success(let articles):
+                self.articles = articles
                 completion()
             case .failure(let error):
                 print(error.localizedDescription)
@@ -33,14 +33,14 @@ class NewsViewModel: NewsViewModelProtocol {
     }
     
     func getNewsCellViewModel(at indexPath: IndexPath) -> NewsTableViewCellViewModelProtocol? {
-        guard let newsImage = news?[indexPath.row].image,
-              let newsTitle = news?[indexPath.row].title
+        guard let articleImage = articles?[indexPath.row].image,
+              let articleTitle = articles?[indexPath.row].title
         else { return nil }
-        let newsDescription = news?[indexPath.row].articleDescription ?? ""
+        let articleDescription = articles?[indexPath.row].articleDescription ?? ""
         return NewsTableViewCellViewModel(
-            newsImage: newsImage,
-            newsTitle: newsTitle,
-            newsDescription: newsDescription
+            articleImage: articleImage,
+            articleTitle: articleTitle,
+            articleDescription: articleDescription
         )
     }
 }

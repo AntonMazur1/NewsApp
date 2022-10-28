@@ -10,13 +10,14 @@ import Foundation
 protocol SearchViewModelProtocol {
     var numberOfRows: Int { get }
     var numberOfSearch: Int { get }
+    var queryItems: [URLQueryItem] { get }
     func searchNews(completion: @escaping() -> ())
     func getNewsViewModel(at indexPath: IndexPath) -> NewsTableViewCellViewModelProtocol?
     func getSearchHistoryViewModel(at indexPath: IndexPath) -> SearchHistoryTableViewCellViewModelProtocol?
 }
 
 class SearchViewModel: SearchViewModelProtocol {
-    var news: [Article]?
+    private var news: [Article]?
     private var searchHistory = ["Bool what is it?", "Good Morning", "Xcode"]
     
     var numberOfRows: Int {
@@ -27,8 +28,12 @@ class SearchViewModel: SearchViewModelProtocol {
         searchHistory.count
     }
     
+    var queryItems: [URLQueryItem] {
+        QueryManager.shared.queryParameters
+    }
+    
     func searchNews(completion: @escaping () -> ()) {
-        NetworkManager.loadNewsFromServer { result in
+        NetworkManager.shared.searchNewsByRequest(queries: queryItems) { result in
             switch result {
             case .success(let news):
                 self.news = news.articles
@@ -40,11 +45,11 @@ class SearchViewModel: SearchViewModelProtocol {
     }
     
     func getNewsViewModel(at indexPath: IndexPath) -> NewsTableViewCellViewModelProtocol? {
-        guard let newsImage = news?[indexPath.row].image,
-              let newsTitle = news?[indexPath.row].title
+        guard let articleImage = news?[indexPath.row].image,
+              let articleTitle = news?[indexPath.row].title
         else { return nil }
-        let newsDescription = news?[indexPath.row].articleDescription
-        return NewsTableViewCellViewModel(newsImage: newsImage, newsTitle: newsTitle, newsDescription: newsDescription ?? "")
+        let articleDescription = news?[indexPath.row].articleDescription
+        return NewsTableViewCellViewModel(articleImage: articleImage, articleTitle: articleTitle, articleDescription: articleDescription ?? "")
     }
     
     func getSearchHistoryViewModel(at indexPath: IndexPath) -> SearchHistoryTableViewCellViewModelProtocol? {

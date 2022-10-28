@@ -8,10 +8,10 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    @IBOutlet weak var searchResultTableView: UITableView!
+    @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    @IBOutlet weak var navigationView: UIView!
+    @IBOutlet weak var searchResultTableView: UITableView!
     
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
@@ -22,18 +22,23 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         viewModel = SearchViewModel()
         
+        setupNavigationButtons()
+        setupSearchBar()
+        
+        searchResultTableView.register(UINib(nibName: "SearchHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: SearchHistoryTableViewCell.identifier)
+        searchResultTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: NewsTableViewCell.identifier)
+    }
+    
+    private func setupSearchBar() {
         searchBar.searchTextField.backgroundColor = #colorLiteral(red: 0.9879724383, green: 1, blue: 1, alpha: 1)
-        
-        navigationView.clipsToBounds = true
-        navigationView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        navigationView.layer.cornerRadius = 30
-        
+        searchBar.delegate = self
+    }
+    
+    private func setupNavigationButtons() {
         sortButton.clipsToBounds = true
         filterButton.clipsToBounds = true
         sortButton.layer.cornerRadius = sortButton.frame.height / 2
         filterButton.layer.cornerRadius = filterButton.frame.height / 2
-        
-        searchResultTableView.register(UINib(nibName: "SearchHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: SearchHistoryTableViewCell.identifier)
     }
 }
 
@@ -61,5 +66,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchResultTableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+//MARK: - UISearchBarDelegate
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ seachBar: UISearchBar) {
+        seachBar.resignFirstResponder()
+        QueryManager.shared.changeKeyWord(with: seachBar.text ?? "")
+        print(QueryManager.shared.queryParameters)
+        viewModel.searchNews { [weak self] in
+            DispatchQueue.main.async {
+                self?.searchResultTableView.reloadData()
+            }
+        }
     }
 }
