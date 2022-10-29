@@ -11,10 +11,11 @@ protocol NewsViewModelProtocol {
     var numberOfRows: Int { get }
     func loadNews(completion: @escaping() -> ())
     func getNewsCellViewModel(at indexPath: IndexPath) -> NewsTableViewCellViewModelProtocol?
+    func getWebViewViewModel(at indexPath: IndexPath) -> WebViewViewModelProtocol?
 }
 
 class NewsViewModel: NewsViewModelProtocol {
-    private var articles: [Article]?
+    private var articles: [Model.ArticleModel]?
     
     var numberOfRows: Int {
         articles?.count ?? 0
@@ -42,5 +43,11 @@ class NewsViewModel: NewsViewModelProtocol {
             articleTitle: articleTitle,
             articleDescription: articleDescription
         )
+    }
+    
+    func getWebViewViewModel(at indexPath: IndexPath) -> WebViewViewModelProtocol? {
+        let url = articles?[indexPath.row].url
+        print(url)
+        return WebViewViewModel(url: url ?? "")
     }
 }

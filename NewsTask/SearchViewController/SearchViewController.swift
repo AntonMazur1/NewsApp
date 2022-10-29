@@ -22,16 +22,38 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         viewModel = SearchViewModel()
         
-        setupNavigationButtons()
         setupSearchBar()
-        
-        searchResultTableView.register(UINib(nibName: "SearchHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: SearchHistoryTableViewCell.identifier)
-        searchResultTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: NewsTableViewCell.identifier)
+        registerCustomCell()
+        navigationView.roundCourners(corners: [.bottomLeft, .bottomRight], radius: 20)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.searchNews { [weak self] in
+            DispatchQueue.main.async {
+                self?.searchResultTableView.reloadData()
+            }
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupNavigationButtons()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let webViewVC = segue.destination as? WebViewViewController else { return }
+        webViewVC.viewModel = sender as? WebViewViewModel
     }
     
     private func setupSearchBar() {
         searchBar.searchTextField.backgroundColor = #colorLiteral(red: 0.9879724383, green: 1, blue: 1, alpha: 1)
         searchBar.delegate = self
+    }
+    
+    private func registerCustomCell() {
+        searchResultTableView.register(UINib(nibName: "SearchHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: SearchHistoryTableViewCell.identifier)
+        searchResultTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: NewsTableViewCell.identifier)
     }
     
     private func setupNavigationButtons() {
@@ -41,6 +63,7 @@ class SearchViewController: UIViewController {
         filterButton.layer.cornerRadius = filterButton.frame.height / 2
     }
 }
+
 
 //MARK: - UITableViewDelegate, UITableViewDataSource
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -65,6 +88,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if viewModel.numberOfRows != 0 {
+            let webViewModel = viewModel.getWebViewModel(at: indexPath)
+            performSegue(withIdentifier: "showSearchInWebView", sender: webViewModel)
+        }
         searchResultTableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -73,8 +100,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ seachBar: UISearchBar) {
         seachBar.resignFirstResponder()
-        QueryManager.shared.changeKeyWord(with: seachBar.text ?? "")
-        print(QueryManager.shared.queryParameters)
+        FiltersManager.shared.searchText(value: seachBar.text ?? "")
         viewModel.searchNews { [weak self] in
             DispatchQueue.main.async {
                 self?.searchResultTableView.reloadData()

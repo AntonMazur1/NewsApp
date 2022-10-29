@@ -9,14 +9,21 @@ import UIKit
 
 class NewsViewController: UIViewController {
     @IBOutlet weak var newsTableView: UITableView!
+    @IBOutlet weak var navigationView: UIView!
     
     private let viewModel = NewsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBarAndTabBar()
+        setupTabBar()
         loadNewsFromServer()
         newsTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: NewsTableViewCell.identifier)
+        navigationView.roundCourners(corners: [.bottomLeft, .bottomRight], radius: 20)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let webViewVC = segue.destination as? WebViewViewController else { return }
+        webViewVC.viewModel = sender as? WebViewViewModel
     }
     
     private func loadNewsFromServer() {
@@ -27,17 +34,7 @@ class NewsViewController: UIViewController {
         }
     }
     
-    private func setupNavigationBarAndTabBar() {
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .white
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.orange]
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        navigationController?.navigationBar.roundCourners(corners: [.bottomLeft, .bottomRight], radius: 20)
-        
-        navigationItem.titleView = UIImageView(image: UIImage(named: "Logo"))
-        
+    private func setupTabBar() {
         tabBarController?.tabBar.backgroundColor = .white
         tabBarController?.tabBar.tintColor = .orange
     }
@@ -56,6 +53,8 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let webViewViewModel = viewModel.getWebViewViewModel(at: indexPath)
+        performSegue(withIdentifier: "showWebView", sender: webViewViewModel)
         newsTableView.deselectRow(at: indexPath, animated: true)
     }
 }
