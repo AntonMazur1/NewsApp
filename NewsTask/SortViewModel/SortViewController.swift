@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SortViewController: UIViewController {
+class SortViewController: UIViewController, UISheetPresentationControllerDelegate {
     @IBOutlet weak var publishDateButton: UIButton!
     @IBOutlet weak var relevanceButton: UIButton!
     
@@ -71,9 +71,4 @@ class SortViewController: UIViewController {
             0.25 * context.maximumDetentValue
         })]
     }
-}
-
-//MARK: - UISheetPresentationControllerDelegate
-extension SortViewController: UISheetPresentationControllerDelegate {
-    
 }

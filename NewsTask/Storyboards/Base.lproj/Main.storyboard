@@ -373,7 +373,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zVQ-Sk-xiD">
-                                <rect key="frame" x="16" y="54" width="382" height="128.33333333333334"/>
+                                <rect key="frame" x="16" y="64.000000000000014" width="382" height="128.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8l-eu-f0z">
                                         <rect key="frame" x="0.0" y="0.0" width="58.666666666666664" height="20.333333333333332"/>
@@ -431,7 +431,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gBx-3P-PK6" firstAttribute="width" secondItem="hKO-Wr-SBO" secondAttribute="width" multiplier="0.9" id="YZu-4e-YK6"/>
-                            <constraint firstItem="zVQ-Sk-xiD" firstAttribute="top" secondItem="xWq-Oe-LHr" secondAttribute="top" constant="10" id="ZTw-tf-5Cx"/>
+                            <constraint firstItem="zVQ-Sk-xiD" firstAttribute="top" secondItem="xWq-Oe-LHr" secondAttribute="top" constant="20" id="ZTw-tf-5Cx"/>
                             <constraint firstItem="xWq-Oe-LHr" firstAttribute="trailing" secondItem="zVQ-Sk-xiD" secondAttribute="trailing" constant="16" id="iLN-qI-ZSB"/>
                             <constraint firstItem="zVQ-Sk-xiD" firstAttribute="leading" secondItem="xWq-Oe-LHr" secondAttribute="leading" constant="16" id="vxy-zW-hVz"/>
                         </constraints>
