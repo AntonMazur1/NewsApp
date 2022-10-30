@@ -18,6 +18,7 @@ class WebViewViewModel: WebViewViewModelProtocol {
     required init(url: String) {
         self.url = url
     }
+    
     func loadPage(completion: @escaping (URLRequest) -> Void) {
         guard let url = URL(string: url) else { return }
         let urlRequest = URLRequest(url: url)

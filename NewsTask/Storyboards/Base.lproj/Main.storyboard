@@ -437,7 +437,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="publishDate" destination="m7K-vW-s2P" id="Dit-Yo-nhH"/>
+                        <outlet property="publishDateButton" destination="m7K-vW-s2P" id="Dit-Yo-nhH"/>
                         <outlet property="relevanceButton" destination="1N7-ph-mXl" id="KOi-9z-uwh"/>
                     </connections>
                 </viewController>

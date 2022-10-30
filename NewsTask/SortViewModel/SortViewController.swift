@@ -8,8 +8,10 @@
 import UIKit
 
 class SortViewController: UIViewController {
-    @IBOutlet weak var publishDate: UIButton!
+    @IBOutlet weak var publishDateButton: UIButton!
     @IBOutlet weak var relevanceButton: UIButton!
+    
+    private var viewModel: SortViewModelProtocol!
     
     override var sheetPresentationController: UISheetPresentationController? {
         presentationController as? UISheetPresentationController
@@ -17,6 +19,8 @@ class SortViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = SortViewModel()
+        
         sheetPresentationConfigure()
         setupButton()
     }
@@ -31,7 +35,7 @@ class SortViewController: UIViewController {
             sender.setImage(UIImage(named: "FilterOff"), for: .normal)
         }
         
-        FiltersManager.shared.addNew(sortItems: searchInValues)
+        viewModel.addNew(sortItems: searchInValues)
     }
     
     @IBAction func relevancePressed(_ sender: UIButton) {
@@ -44,13 +48,14 @@ class SortViewController: UIViewController {
             sender.setImage(UIImage(named: "FilterOff"), for: .normal)
         }
         
-        FiltersManager.shared.addNew(sortItems: searchInValues)
+        viewModel.addNew(sortItems: searchInValues)
     }
     
     private func setupButton() {
-        let values = FiltersManager.shared.getSortItems()
+        let values = viewModel.sortItems
+        
         if values.contains(.publishDate) {
-            publishDate.setImage(UIImage(named: "FilterOn"), for: .normal)
+            publishDateButton.setImage(UIImage(named: "FilterOn"), for: .normal)
         }
         
         if values.contains(.relevance) {
