@@ -14,11 +14,11 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var newsDescription: UILabel!
     @IBOutlet weak var newsTitle: UILabel!
     
-    var viewModel: NewsTableViewCellViewModelProtocol? {
+    var viewModel: NewsTableViewCellViewModelProtocol! {
         didSet {
-            newsImage.loadImageFrom(urlString: viewModel?.articleImage ?? "")
-            newsTitle.text = viewModel?.articleTitle
-            newsDescription.text = viewModel?.articleDescription
+            newsImage.loadImageFrom(urlString: viewModel.articleImage)
+            newsTitle.text = viewModel.articleTitle
+            newsDescription.text = viewModel.articleDescription
         }
     }
     

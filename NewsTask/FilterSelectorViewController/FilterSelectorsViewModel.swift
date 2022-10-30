@@ -8,9 +8,14 @@
 import Foundation
 
 protocol FilterSelectorsViewModelProtocol {
-    
+    var chosenFilters: [SearchItem] { get }
+    func addNewChosen(filters: [SearchItem])
 }
 
 class FilterSelectorsViewModel: FilterSelectorsViewModelProtocol {
+    var chosenFilters = FiltersManager.shared.getFilters()
     
+    func addNewChosen(filters: [SearchItem]) {
+        FiltersManager.shared.addNew(filters: filters)
+    }
 }

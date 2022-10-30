@@ -12,19 +12,20 @@ class FilterViewController: UIViewController {
     @IBOutlet weak var fromDataTextField: UITextField!
     @IBOutlet weak var toDataTextField: UITextField!
     
+    private var viewModel: FilterViewModelProtocol!
+    
     private let datePicker = UIDatePicker()
-    private var filterItems = FiltersManager.shared.getFilterItems()
     private let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = FilterViewModel()
+        
         setupTextFields(fromDataTextField, toDataTextField)
+        setChosenData()
         createDatePicker()
         setupNavigationBar()
         
-        let dateFilters = FiltersManager.shared.getFilterItems()
-        toDataTextField.text = dateFilters.to
-        fromDataTextField.text = dateFilters.from
         dateFormatter.dateFormat = "yyyy-MM-dd"
     }
     
@@ -33,7 +34,7 @@ class FilterViewController: UIViewController {
         let fromDate = fromDataTextField.text
         
         let chosenFilters = FilterItemsModel(to: toDate, from: fromDate)
-        FiltersManager.shared.add(filterItems: chosenFilters)
+        viewModel.add(filterItems: chosenFilters)
         
         dismiss(animated: true)
     }
@@ -45,6 +46,12 @@ class FilterViewController: UIViewController {
             bottomLine.backgroundColor = UIColor.orange.cgColor
             $0.layer.addSublayer(bottomLine)
         }
+    }
+    
+    private func setChosenData() {
+        let dateFilters = viewModel.chosenFilters
+        toDataTextField.text = dateFilters.to
+        fromDataTextField.text = dateFilters.from
     }
     
     private func setupToolbar() -> UIToolbar {

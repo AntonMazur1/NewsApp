@@ -12,14 +12,19 @@ class FilterSelectorsViewController: UIViewController {
     @IBOutlet weak var descriptionSwitch: UISwitch!
     @IBOutlet weak var contentSwitch: UISwitch!
     
+    private var viewModel: FilterSelectorsViewModelProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = FilterSelectorsViewModel()
+        
         setupSwitch()
         setupNavigationBar()
     }
     
     private func setupSwitch() {
-        let values = FiltersManager.shared.getFilters()
+        let values = viewModel.chosenFilters
+        
         titleSwitch.setOn(values.contains(.title), animated: false)
         descriptionSwitch.setOn(values.contains(.description), animated: false)
         contentSwitch.setOn(values.contains(.content), animated: false)
@@ -40,7 +45,7 @@ class FilterSelectorsViewController: UIViewController {
             searchInValues.append(.content)
         }
         
-        FiltersManager.shared.addNew(filters: searchInValues)
+        viewModel.addNewChosen(filters: searchInValues)
         dismiss(animated: true)
     }
     

@@ -50,7 +50,10 @@ class SearchViewModel: SearchViewModelProtocol {
               let articleTitle = articles?[indexPath.row].title
         else { return nil }
         let articleDescription = articles?[indexPath.row].articleDescription
-        return NewsTableViewCellViewModel(articleImage: articleImage, articleTitle: articleTitle, articleDescription: articleDescription ?? "")
+        
+        return NewsTableViewCellViewModel(articleImage: articleImage,
+                                          articleTitle: articleTitle,
+                                          articleDescription: articleDescription ?? "")
     }
     
     func getSearchHistoryViewModel(at indexPath: IndexPath) -> SearchHistoryTableViewCellViewModelProtocol? {
@@ -59,7 +62,7 @@ class SearchViewModel: SearchViewModelProtocol {
     }
     
     func getWebViewModel(at indexPath: IndexPath) -> WebViewViewModelProtocol? {
-        let url = articles?[indexPath.row].url
-        return WebViewViewModel(url: url ?? "")
+        guard let url = articles?[indexPath.row].url else { return nil }
+        return WebViewViewModel(url: url)
     }
 }
