@@ -18,9 +18,10 @@ enum QueryKey: String {
 class FiltersManager {
     static let shared = FiltersManager()
     
-    private var searchItems: [SearchItem] = []
-    private var searchText = ""
     private var filterItems: FilterItemsModel?
+    private var searchItems: [SearchItem] = []
+    private var sortItems: [SortItem] = []
+    private var searchText = ""
     
     private init() {}
     
@@ -48,11 +49,20 @@ class FiltersManager {
         searchItems
     }
     
+    func addNew(sortItems: [SortItem]) {
+        self.sortItems = sortItems
+    }
+    
+    func getSortItems() -> [SortItem] {
+        sortItems
+    }
+    
     func getQueryItems() -> [URLQueryItem] {
         var queryItems: [URLQueryItem] = []
         queryItems.append(URLQueryItem(name: "q", value: searchText))
         queryItems.append(URLQueryItem(name: "token", value: UrlComponents.token.rawValue))
         queryItems.append(URLQueryItem(name: "in", value: searchItems.queryValue))
+        queryItems.append(URLQueryItem(name: "sortby", value: sortItems.queryValue))
         queryItems.append(URLQueryItem(name: "from", value: filterItems?.from))
         queryItems.append(URLQueryItem(name: "to", value: filterItems?.to))
         return queryItems

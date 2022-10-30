@@ -33,8 +33,6 @@ class NetworkManager {
         urlComps?.queryItems = queries
         
         guard let queryUrl = urlComps?.url else { return }
-        #warning("Delete print URL")
-        print(queryUrl)
         URLSession.shared.dataTask(with: queryUrl) { data, _, error in
             do {
                 guard let data = data else { return }

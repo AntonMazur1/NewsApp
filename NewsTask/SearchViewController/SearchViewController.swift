@@ -24,7 +24,8 @@ class SearchViewController: UIViewController {
         
         setupSearchBar()
         registerCustomCell()
-        navigationView.roundCourners(corners: [.bottomLeft, .bottomRight], radius: 20)
+        
+        navigationView.roundCourners(view: navigationView, corners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: 30)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +45,12 @@ class SearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let webViewVC = segue.destination as? WebViewViewController else { return }
         webViewVC.viewModel = sender as? WebViewViewModel
+    }
+    
+    @IBAction func sortButtonPressed() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let sortVC = storyboard.instantiateViewController(withIdentifier: "sortVC") as! SortViewController
+        present(sortVC, animated: true)
     }
     
     private func setupSearchBar() {

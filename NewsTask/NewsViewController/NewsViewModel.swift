@@ -46,8 +46,7 @@ class NewsViewModel: NewsViewModelProtocol {
     }
     
     func getWebViewViewModel(at indexPath: IndexPath) -> WebViewViewModelProtocol? {
-        let url = articles?[indexPath.row].url
-        print(url)
-        return WebViewViewModel(url: url ?? "")
+        guard let url = articles?[indexPath.row].url else { return nil }
+        return WebViewViewModel(url: url)
     }
 }

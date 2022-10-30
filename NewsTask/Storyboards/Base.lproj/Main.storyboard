@@ -192,6 +192,9 @@
                                                         <buttonConfiguration key="configuration" style="filled" image="Sort">
                                                             <color key="baseBackgroundColor" red="0.96862745289999996" green="0.96862745289999996" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="sortButtonPressed" destination="lT4-XQ-dxP" eventType="touchUpInside" id="6l1-m5-gim"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -240,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qg7-Tc-YIX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9403.8167938931292" y="568.30985915492965"/>
+            <point key="canvasLocation" x="8555" y="568"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="mF9-Fv-EPY">
@@ -359,7 +362,88 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eK9-kK-b1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11251" y="568"/>
+            <point key="canvasLocation" x="10316" y="568"/>
+        </scene>
+        <!--Sort View Controller-->
+        <scene sceneID="QKo-sX-cQm">
+            <objects>
+                <viewController storyboardIdentifier="sortVC" id="F3P-J9-cAm" customClass="SortViewController" customModule="NewsTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hKO-Wr-SBO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zVQ-Sk-xiD">
+                                <rect key="frame" x="16" y="54" width="382" height="128.33333333333334"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8l-eu-f0z">
+                                        <rect key="frame" x="0.0" y="0.0" width="58.666666666666664" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="gBx-3P-PK6">
+                                        <rect key="frame" x="0.0" y="28.333333333333329" width="372.66666666666669" height="99.999999999999986"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Jks-IH-8GR">
+                                                <rect key="frame" x="0.0" y="14.666666666666671" width="212.66666666666666" height="70.666666666666671"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqt-UL-6cg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="96.666666666666671" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Relevance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GV0-IU-3bY">
+                                                        <rect key="frame" x="0.0" y="50.333333333333343" width="80" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qWc-or-xup">
+                                                <rect key="frame" x="312.66666666666669" y="0.0" width="60" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7K-vW-s2P">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="FilterOff"/>
+                                                        <connections>
+                                                            <action selector="publishedDatePressed:" destination="F3P-J9-cAm" eventType="touchUpInside" id="4O5-gZ-Vac"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1N7-ph-mXl">
+                                                        <rect key="frame" x="0.0" y="50.000000000000014" width="60" height="50"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="FilterOff"/>
+                                                        <connections>
+                                                            <action selector="relevancePressed:" destination="F3P-J9-cAm" eventType="touchUpInside" id="PhP-Jn-kOZ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xWq-Oe-LHr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gBx-3P-PK6" firstAttribute="width" secondItem="hKO-Wr-SBO" secondAttribute="width" multiplier="0.9" id="YZu-4e-YK6"/>
+                            <constraint firstItem="zVQ-Sk-xiD" firstAttribute="top" secondItem="xWq-Oe-LHr" secondAttribute="top" constant="10" id="ZTw-tf-5Cx"/>
+                            <constraint firstItem="xWq-Oe-LHr" firstAttribute="trailing" secondItem="zVQ-Sk-xiD" secondAttribute="trailing" constant="16" id="iLN-qI-ZSB"/>
+                            <constraint firstItem="zVQ-Sk-xiD" firstAttribute="leading" secondItem="xWq-Oe-LHr" secondAttribute="leading" constant="16" id="vxy-zW-hVz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="publishDate" destination="m7K-vW-s2P" id="Dit-Yo-nhH"/>
+                        <outlet property="relevanceButton" destination="1N7-ph-mXl" id="KOi-9z-uwh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ch3-92-KDY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8553.6231884057979" y="1296.4285714285713"/>
         </scene>
         <!--Filter Selectors View Controller-->
         <scene sceneID="Aa6-wg-1ja">
@@ -453,7 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejw-cR-ehV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12185" y="568"/>
+            <point key="canvasLocation" x="11225" y="568"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aC5-Uc-hkW">
@@ -472,7 +556,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chq-oK-bgs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7546.1538461538457" y="-272.27488151658764"/>
+            <point key="canvasLocation" x="7578" y="145"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="34I-Op-ivO">
@@ -491,7 +575,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gn1-WI-nTU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10318" y="568"/>
+            <point key="canvasLocation" x="9438" y="568"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -501,6 +585,7 @@
         <image name="BackButton" width="10" height="15"/>
         <image name="DataPick" width="24" height="25"/>
         <image name="Filter" width="16" height="19"/>
+        <image name="FilterOff" width="36" height="36"/>
         <image name="Logo" width="67" height="29"/>
         <image name="NewsFeed" width="19" height="19"/>
         <image name="Search" width="22" height="22"/>

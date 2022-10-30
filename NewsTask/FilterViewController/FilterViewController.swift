@@ -4,7 +4,7 @@
 //
 //  Created by Клоун on 25.10.2022.
 //
-#warning("Date filter")
+
 import UIKit
 
 class FilterViewController: UIViewController {
@@ -32,9 +32,10 @@ class FilterViewController: UIViewController {
         let toDate = toDataTextField.text
         let fromDate = fromDataTextField.text
         
-        let newFilters = FilterItemsModel(to: toDate, from: fromDate)
-        print(newFilters)
-        FiltersManager.shared.add(filterItems: newFilters)
+        let chosenFilters = FilterItemsModel(to: toDate, from: fromDate)
+        FiltersManager.shared.add(filterItems: chosenFilters)
+        
+        dismiss(animated: true)
     }
     
     private func setupTextFields(_ textfields: UITextField...) {
@@ -100,6 +101,7 @@ class FilterViewController: UIViewController {
             toDataTextField.text = dateString
             datePicker.date = Date()
         }
+        
         view.endEditing(true)
     }
     

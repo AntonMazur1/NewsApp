@@ -17,8 +17,10 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         setupTabBar()
         loadNewsFromServer()
+        
         newsTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: NewsTableViewCell.identifier)
-        navigationView.roundCourners(corners: [.bottomLeft, .bottomRight], radius: 20)
+        
+        navigationView.roundCourners(view: navigationView, corners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: 30)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
