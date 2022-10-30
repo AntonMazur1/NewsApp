@@ -171,6 +171,7 @@
 			children = (
 				89C6044F290129BE0071A198 /* Application */,
 				89C60450290129D80071A198 /* NewsViewController */,
+				895A8BEB290DB619003060BF /* WebViewViewController */,
 				893ED8152905486300C599F6 /* SearchViewController */,
 				895A8BF0290E582C003060BF /* SortViewModel */,
 				891D31D4290951F000EC0ECE /* FilterViewController */,
@@ -190,7 +191,6 @@
 				89C6043B290129B10071A198 /* AppDelegate.swift */,
 				89C6043D290129B10071A198 /* SceneDelegate.swift */,
 				89C60449290129B30071A198 /* Info.plist */,
-				895A8BEB290DB619003060BF /* WebViewViewController */,
 			);
 			path = Application;
 			sourceTree = "<group>";
