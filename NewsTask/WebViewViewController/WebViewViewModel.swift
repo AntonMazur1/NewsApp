@@ -8,7 +8,7 @@
 import Foundation
 
 protocol WebViewViewModelProtocol {
-    func loadPage(completion: @escaping(URLRequest) -> Void)
+    func getPage(completion: @escaping(URLRequest) -> Void)
     init(url: String)
 }
 
@@ -19,7 +19,7 @@ class WebViewViewModel: WebViewViewModelProtocol {
         self.url = url
     }
     
-    func loadPage(completion: @escaping (URLRequest) -> Void) {
+    func getPage(completion: @escaping (URLRequest) -> Void) {
         guard let url = URL(string: url) else { return }
         let urlRequest = URLRequest(url: url)
         

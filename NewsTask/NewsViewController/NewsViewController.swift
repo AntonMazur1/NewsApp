@@ -11,10 +11,12 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var navigationView: UIView!
     
-    private let viewModel = NewsViewModel()
+    private var viewModel: NewsViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = NewsViewModel()
+        
         setupTabBar()
         loadNewsFromServer()
         

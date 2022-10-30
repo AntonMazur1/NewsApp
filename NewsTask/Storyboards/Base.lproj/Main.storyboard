@@ -73,7 +73,7 @@
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ds0-YU-MG6">
                                 <rect key="frame" x="0.0" y="129.33333333333331" width="414" height="732.66666666666674"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -103,11 +103,16 @@
                                     <constraint firstItem="qh3-mw-aPi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fOB-uY-b0n" secondAttribute="trailing" constant="8" symbolic="YES" id="i5t-WU-3VZ"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="K9r-69-6qc">
+                                <rect key="frame" x="188.66666666666666" y="477.33333333333331" width="37" height="36.999999999999943"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XX3-pS-VyJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="K9r-69-6qc" firstAttribute="centerY" secondItem="ds0-YU-MG6" secondAttribute="centerY" id="0Cw-Ps-Kia"/>
                             <constraint firstItem="XX3-pS-VyJ" firstAttribute="bottom" secondItem="ds0-YU-MG6" secondAttribute="bottom" id="0TK-9N-TXe"/>
+                            <constraint firstItem="K9r-69-6qc" firstAttribute="centerX" secondItem="ds0-YU-MG6" secondAttribute="centerX" id="8fh-xS-Xmd"/>
                             <constraint firstItem="XX3-pS-VyJ" firstAttribute="trailing" secondItem="ds0-YU-MG6" secondAttribute="trailing" id="9es-5u-xb4"/>
                             <constraint firstItem="UtL-pT-PAK" firstAttribute="trailing" secondItem="XX3-pS-VyJ" secondAttribute="trailing" id="T90-pA-8Hc"/>
                             <constraint firstItem="ds0-YU-MG6" firstAttribute="leading" secondItem="XX3-pS-VyJ" secondAttribute="leading" id="VH6-7v-T6I"/>
@@ -119,6 +124,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="aRl-MZ-HDV"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="K9r-69-6qc" id="ftC-Bx-yF9"/>
                         <outlet property="webView" destination="ds0-YU-MG6" id="RwV-nD-mSA"/>
                     </connections>
                 </viewController>
